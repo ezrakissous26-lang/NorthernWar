@@ -1,8 +1,19 @@
+import express from 'express'
+import { ObjectId } from 'mongodb'
+import { getOneById } from '../repo/game-repo.js'
+
 export function checkIfBodyExist(req, res, next) {
     let body = req.body
-    console.log(body)
     if (!body || Object.keys(body).length === 0 || !body.playerName || (body.playerName.trim()).length === 0) {
         return res.status(400).json({error: 'Invalid body'})
     } next()
 }
 
+export async function checkValidGameId(req, res, next) {
+    const gameId = req.params.id
+    if (!ObjectId.isValid(gameId)) {
+        return res.status(400).json({error: 'Invalid Id'})
+    } else if (await getOneById(gameId) === null) {
+        return res.status(404).json({error: 'Id not found'})
+    } next()
+}

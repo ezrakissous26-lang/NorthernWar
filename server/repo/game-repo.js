@@ -24,16 +24,12 @@ export async function createNewGame(playerName) {
 export async function getOneById(id) {
     try {
         const result = await collectionGame.findOne({ _id: new ObjectId(id) })
-        console.log(result)
         return result
     } catch (error) {
         console.error("Error :", error.message);
         return error
     }
 }
-
-await getOneById('6a8af3bcb5d63f2d0d9f2a87')
-
 
 // async function initGame() {
 //     try {
