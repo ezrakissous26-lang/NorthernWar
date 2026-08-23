@@ -1,0 +1,27 @@
+{
+  "name": "exam-23-08",
+  "version": "1.0.0",
+  "description": "This project involves building a backend designed to integrate with the existing frontend available here: [FrontEnd Git Repo](https://github.com/hananFr/frontend-northern-war). The backend will consist of an Express server capable of handling requests to a MongoDB database, along with business logic that follows the rules of the conquest game.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch ./server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezrakissous26-lang/NorthernWar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ezrakissous26-lang/NorthernWar/issues"
+  },
+  "homepage": "https://github.com/ezrakissous26-lang/NorthernWar#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongodb": "^7.5.0"
+  }
+}
