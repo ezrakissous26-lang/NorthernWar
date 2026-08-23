@@ -1,6 +1,6 @@
 import express from 'express'
 import { checkIfBodyExist } from '../middleware/midlleware.js'
-import { createNewGame } from '../repo/game-repo.js'
+import { createNewGame, getOneById } from '../repo/game-repo.js'
 
 export const router =  express.Router()
 
@@ -10,7 +10,7 @@ router.post('/games', checkIfBodyExist, async (req, res) => {
     if (result.error) {
         return res.status(500).json({error: result.error})
     }
-    return res.status(201).json()
+    return res.status(201).json(await getOneById(result.insertedId))
 })
 
 router.get('/games/:id', (req, res) => {

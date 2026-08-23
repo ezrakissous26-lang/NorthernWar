@@ -1,4 +1,5 @@
 import { client } from "../db/connect.js";
+import { ObjectId } from "mongodb"
 
 const dbNorthernWar = client.db("NorthernWar");
 const collectionGame = dbNorthernWar.collection("game");
@@ -13,13 +14,25 @@ export async function createNewGame(playerName) {
       winner: null,
       territories: [],
     });
-    console.log(result);
     return result;
   } catch (error) {
     console.error("Error :", error.message);
+    return error
   }
 }
 
+export async function getOneById(id) {
+    try {
+        const result = await collectionGame.findOne({ _id: new ObjectId(id) })
+        console.log(result)
+        return result
+    } catch (error) {
+        console.error("Error :", error.message);
+        return error
+    }
+}
+
+await getOneById('6a8af3bcb5d63f2d0d9f2a87')
 
 
 // async function initGame() {
