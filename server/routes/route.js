@@ -1,13 +1,16 @@
 import express from 'express'
+import { checkIfBodyExist } from '../middleware/midlleware.js'
+import { createNewGame } from '../repo/game-repo.js'
 
 export const router =  express.Router()
 
-// router.get('/', (req, res) => {
-//     res.status(200).json({message: 'hello world'})
-// })
-
-router.post('/games', (req, res) => {
-    res.send('banana')
+router.post('/games', checkIfBodyExist, async (req, res) => {
+    const playerName = (req.body.playerName).trim()
+    const result = await createNewGame(playerName)
+    if (result.error) {
+        return res.status(500).json({error: result.error})
+    }
+    return res.status(201).json()
 })
 
 router.get('/games/:id', (req, res) => {
