@@ -27,7 +27,7 @@ router.get("/games/:id", await checkValidGameId, async (req, res) => {
         const result = await getOneById(gameId);
         res.status(200).json(result);
     } catch (err) {
-        res.status(err.status).json({ error: err.message });
+        res.status(err.status).json({error: err.message});
   }
 
 });
@@ -37,7 +37,7 @@ router.post("/games/:id/reinforce", checkValidGameId ,checkIfTerritoryBodyExist,
         const result = await reinforcePhase(req.params.id, req.body.territoryId)
         res.status(201).json(result)
     } catch (err) {
-        res.status(err.status).json({ error: err.message });
+        res.status(err.status).json({error: err.message});
     }
 });
 
@@ -48,11 +48,15 @@ router.post("/games/:id/attack", checkValidGameId, checkIfAttackBodyExist , asyn
     } catch (err) {
         res.status(err.status).json({error: err.message})
     }
-    res.send("banana");
 });
 
-router.post("/games/:id/move", (req, res) => {
-  res.send("banana");
+router.post("/games/:id/move", checkValidGameId ,async (req, res) => {
+    try {
+        const result = await //
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(err.status).json({error: err.message});
+    }
 });
 
 router.post("/games/:id/end-turn", (req, res) => {

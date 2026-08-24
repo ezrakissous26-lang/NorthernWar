@@ -36,6 +36,13 @@ export function checkIfAttackBodyExist(req, res, next) {
         return next()
     }
     if (!body.fromId || !body.toId || !body.soldiers) {
-        return res.status(400).json({error: 'Invalid body all field requied'})
+        return res.status(400).json({error: 'Invalid body all field requied (fromId, toId, soldiers)'})
+    } next()
+}
+
+export function checkIfMoveBodyExist(req, res, next) {
+    let body = req.body
+    if (!body || Object.keys(body).length === 0 || !body.fromId || !body.toId || !body.soldiers) {
+        return res.status(400).json({error: 'Invalid body all field requied (fromId, toId, soldiers)'})
     } next()
 }
