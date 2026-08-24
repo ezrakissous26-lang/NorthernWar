@@ -33,8 +33,9 @@ router.get("/games/:id", await checkValidGameId, async (req, res) => {
 
 router.post("/games/:id/reinforce", checkValidGameId ,checkIfTerritoryBodyExist, async (req, res) => {
     try {
-        await reinforcePhase(req.params.id, req.body.territoryId)
-    } catch (error) {
+        const result = await reinforcePhase(req.params.id, req.body.territoryId)
+        res.status(201).json(result)
+    } catch (err) {
         res.status(err.status).json({ error: err.message });
     }
 });

@@ -36,3 +36,32 @@ export async function getOneById(id) {
   }
 }
 
+export async function updateSoldierByTerritoryId(gameId, territoryId, soldier) {
+  try {
+    const result = await collectionGame.findOneAndUpdate(
+      { _id: new ObjectId(gameId), $and: [{ id: territoryId }] },
+      { $set: { soldiers: soldier } },
+    );
+    console.log(result);
+  } catch (error) {
+    console.error("Error :", error.message);
+    const err = new Error(error.message);
+    err.status = 500;
+    throw err;
+  }
+}
+// await updateSoldierByTerritoryId('6a8bf2ab57bcf60fdfc5088f', 1, 50)
+
+export async function updateGameById(id, gameData) {
+  try {
+    const validData = { ...gameData };
+    delete validData._id;
+    const result = await collectionGame.replaceOne({ _id: new ObjectId(id) }, validData,);
+    return result;
+  } catch (error) {
+    console.error("Error :", error.message);
+    const err = new Error(error.message);
+    err.status = 500;
+    throw err;
+  }
+}
