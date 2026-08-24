@@ -70,4 +70,8 @@ export async function updateSoldierAndOwner(id, soldiers, owner) {
     }
 }
 
+export async function updateSoldiers(territoryId, soldiers) {
+    
+}
+
 // await updateSoldierAndOwner(21, 50, 'banana')
