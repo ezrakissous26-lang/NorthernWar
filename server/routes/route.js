@@ -1,5 +1,6 @@
 import express from "express";
 import {
+    checkIfAttackBodyExist,
   checkIfBodyExist,
   checkIfTerritoryBodyExist,
   checkValidGameId,
@@ -40,8 +41,13 @@ router.post("/games/:id/reinforce", checkValidGameId ,checkIfTerritoryBodyExist,
     }
 });
 
-router.post("/games/:id/attack", (req, res) => {
-  res.send("banana");
+router.post("/games/:id/attack", checkValidGameId, checkIfAttackBodyExist ,(req, res) => {
+    try {
+        
+    } catch (error) {
+        
+    }
+    res.send("banana");
 });
 
 router.post("/games/:id/move", (req, res) => {

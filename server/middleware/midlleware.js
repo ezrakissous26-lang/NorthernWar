@@ -26,3 +26,16 @@ export function checkIfTerritoryBodyExist(req, res, next) {
         return res.status(400).json({error: 'Id out the range of territories'})
     } next()
 }
+
+export function checkIfAttackBodyExist(req, res, next) {
+    let body = req.body
+    if (!body || Object.keys(body).length === 0) {
+        return res.status(400).json({error: 'Body required, invalid body'})
+    }
+    if (body.skip === true) {
+        return next()
+    }
+    if (!body.fromId || !body.toId || !body.soldiers) {
+        return res.status(400).json({error: 'Invalid body all field requied'})
+    } next()
+}
