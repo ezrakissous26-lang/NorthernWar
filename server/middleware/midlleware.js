@@ -17,3 +17,10 @@ export async function checkValidGameId(req, res, next) {
         return res.status(404).json({error: 'Id not found'})
     } next()
 }
+
+export async function checkTerritoryId(req, res, next) {
+    const territoryId = req.params.id
+    if (!(1 <= Number(territoryId) &&  Number(territoryId) <= 21)) {
+        return res.status(400).json({error: 'Invlaid Id'})
+    } next()
+}

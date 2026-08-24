@@ -7,7 +7,9 @@ export const map = [
     "neighbors": [2, 3],
     "startOwner": "computer",
     "distanceFromComputerHQ": 1,
-    "distanceFromPlayerHQ": 6
+    "distanceFromPlayerHQ": 6,
+    "soldiers": 4,
+    "owner": "computer"
   },
   {
     "id": 2,
@@ -18,7 +20,9 @@ export const map = [
     "startOwner": "computer",
     "headquarters": true,
     "distanceFromComputerHQ": 0,
-    "distanceFromPlayerHQ": 6
+    "distanceFromPlayerHQ": 6,
+    "soldiers": 8,
+    "owner": "computer"
   },
   {
     "id": 3,
@@ -28,7 +32,9 @@ export const map = [
     "neighbors": [1, 5, 9],
     "startOwner": "computer",
     "distanceFromComputerHQ": 2,
-    "distanceFromPlayerHQ": 5
+    "distanceFromPlayerHQ": 5,
+    "soldiers": 4,
+    "owner": "computer"
   },
   {
     "id": 4,
@@ -38,7 +44,9 @@ export const map = [
     "neighbors": [2, 5, 6, 7],
     "startOwner": "computer",
     "distanceFromComputerHQ": 1,
-    "distanceFromPlayerHQ": 5
+    "distanceFromPlayerHQ": 5,
+    "soldiers": 4,
+    "owner": "computer"
   },
   {
     "id": 5,
@@ -48,7 +56,9 @@ export const map = [
     "neighbors": [2, 3, 4, 6, 9],
     "startOwner": "computer",
     "distanceFromComputerHQ": 1,
-    "distanceFromPlayerHQ": 5
+    "distanceFromPlayerHQ": 5,
+    "soldiers": 4,
+    "owner": "computer"
   },
   {
     "id": 6,
@@ -58,7 +68,9 @@ export const map = [
     "neighbors": [4, 5, 7, 8, 9],
     "startOwner": "computer",
     "distanceFromComputerHQ": 2,
-    "distanceFromPlayerHQ": 5
+    "distanceFromPlayerHQ": 5,
+    "soldiers": 4,
+    "owner": "computer"
   },
   {
     "id": 7,
@@ -68,7 +80,9 @@ export const map = [
     "neighbors": [4, 6, 8, 10],
     "startOwner": "computer",
     "distanceFromComputerHQ": 2,
-    "distanceFromPlayerHQ": 4
+    "distanceFromPlayerHQ": 4,
+    "soldiers": 4,
+    "owner": "computer"
   },
   {
     "id": 8,
@@ -78,7 +92,9 @@ export const map = [
     "neighbors": [6, 7, 9, 10],
     "startOwner": "computer",
     "distanceFromComputerHQ": 3,
-    "distanceFromPlayerHQ": 4
+    "distanceFromPlayerHQ": 4,
+    "soldiers": 4,
+    "owner": "computer"
   },
   {
     "id": 9,
@@ -88,7 +104,9 @@ export const map = [
     "neighbors": [3, 5, 6, 8, 12],
     "startOwner": "computer",
     "distanceFromComputerHQ": 2,
-    "distanceFromPlayerHQ": 4
+    "distanceFromPlayerHQ": 4,
+    "soldiers": 4,
+    "owner": "computer"
   },
   {
     "id": 10,
@@ -98,7 +116,9 @@ export const map = [
     "neighbors": [7, 8, 11, 13],
     "startOwner": "player",
     "distanceFromComputerHQ": 3,
-    "distanceFromPlayerHQ": 3
+    "distanceFromPlayerHQ": 3,
+    "soldiers": 4,
+    "owner": "player"
   },
   {
     "id": 11,
@@ -108,7 +128,9 @@ export const map = [
     "neighbors": [10, 12, 13, 14],
     "startOwner": "player",
     "distanceFromComputerHQ": 4,
-    "distanceFromPlayerHQ": 3
+    "distanceFromPlayerHQ": 3,
+    "soldiers": 4,
+    "owner": "player"
   },
   {
     "id": 12,
@@ -118,7 +140,9 @@ export const map = [
     "neighbors": [9, 11, 14],
     "startOwner": "player",
     "distanceFromComputerHQ": 3,
-    "distanceFromPlayerHQ": 3
+    "distanceFromPlayerHQ": 3,
+    "soldiers": 4,
+    "owner": "player"
   },
   {
     "id": 13,
@@ -128,7 +152,9 @@ export const map = [
     "neighbors": [10, 11, 15, 16],
     "startOwner": "player",
     "distanceFromComputerHQ": 4,
-    "distanceFromPlayerHQ": 2
+    "distanceFromPlayerHQ": 2,
+    "soldiers": 4,
+    "owner": "player"
   },
   {
     "id": 14,
@@ -138,7 +164,9 @@ export const map = [
     "neighbors": [11, 12, 16],
     "startOwner": "player",
     "distanceFromComputerHQ": 4,
-    "distanceFromPlayerHQ": 2
+    "distanceFromPlayerHQ": 2,
+    "soldiers": 4,
+    "owner": "player"
   },
   {
     "id": 15,
@@ -148,7 +176,9 @@ export const map = [
     "neighbors": [13, 18],
     "startOwner": "player",
     "distanceFromComputerHQ": 5,
-    "distanceFromPlayerHQ": 2
+    "distanceFromPlayerHQ": 2,
+    "soldiers": 4,
+    "owner": "player"
   },
   {
     "id": 16,
@@ -158,7 +188,9 @@ export const map = [
     "neighbors": [13, 14, 17, 18],
     "startOwner": "player",
     "distanceFromComputerHQ": 5,
-    "distanceFromPlayerHQ": 1
+    "distanceFromPlayerHQ": 1,
+    "soldiers": 4,
+    "owner": "player"
   },
   {
     "id": 17,
@@ -169,7 +201,9 @@ export const map = [
     "startOwner": "player",
     "headquarters": true,
     "distanceFromComputerHQ": 6,
-    "distanceFromPlayerHQ": 0
+    "distanceFromPlayerHQ": 0,
+    "soldiers": 8,
+    "owner": "player"
   },
   {
     "id": 18,
@@ -179,7 +213,9 @@ export const map = [
     "neighbors": [15, 16, 17, 19],
     "startOwner": "player",
     "distanceFromComputerHQ": 6,
-    "distanceFromPlayerHQ": 1
+    "distanceFromPlayerHQ": 1,
+    "soldiers": 4,
+    "owner": "player"
   },
   {
     "id": 19,
@@ -189,7 +225,9 @@ export const map = [
     "neighbors": [18, 20, 21],
     "startOwner": "player",
     "distanceFromComputerHQ": 7,
-    "distanceFromPlayerHQ": 2
+    "distanceFromPlayerHQ": 2,
+    "soldiers": 4,
+    "owner": "player"
   },
   {
     "id": 20,
@@ -199,7 +237,9 @@ export const map = [
     "neighbors": [17, 19, 21],
     "startOwner": "player",
     "distanceFromComputerHQ": 7,
-    "distanceFromPlayerHQ": 1
+    "distanceFromPlayerHQ": 1,
+    "soldiers": 4,
+    "owner": "player"
   },
   {
     "id": 21,
@@ -209,6 +249,10 @@ export const map = [
     "neighbors": [19, 20],
     "startOwner": "player",
     "distanceFromComputerHQ": 8,
-    "distanceFromPlayerHQ": 2
+    "distanceFromPlayerHQ": 2,
+    "soldiers": 4,
+    "owner": "player"
   }
 ]
+
+
