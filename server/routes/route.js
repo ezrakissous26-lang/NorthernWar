@@ -1,6 +1,7 @@
 import express from "express";
 import {
   checkIfBodyExist,
+  checkIfTerritoryBodyExist,
   checkTerritoryId,
   checkValidGameId,
 } from "../middleware/midlleware.js";
@@ -31,7 +32,7 @@ router.get("/games/:id", await checkValidGameId, async (req, res) => {
 
 });
 
-router.post("/games/:id/reinforce", checkTerritoryId, (req, res) => {
+router.post("/games/:id/reinforce", checkIfTerritoryBodyExist ,checkTerritoryId, (req, res) => {
   res.send("banana");
 });
 
