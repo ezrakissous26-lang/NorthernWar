@@ -104,3 +104,55 @@ export async function attackPhase(gameId, body) {
     await updateGameById(gameId, result)
     return result
 }
+
+
+export async function movePhase(gameId, body) {
+    const result = await getOneById(gameId)
+    if (result.status === 'finished') {
+        const err = new Error('The game is finish')
+        err.status = 409;
+        throw err;
+    }
+    if (result.phase !== 'move') {
+        const err = new Error('Phase need be move ')
+        err.status = 400;
+        throw err;
+    }
+    const from = findTerritoryById(result.territories, body.fromId)
+    const to = findTerritoryById(result.territories, body.toId)
+    const soldiers = Number(body.soldiers)
+    if (!from || from.owner !== 'player') {
+        const err = new Error('Invalid territory')
+        err.status = 400;
+        throw err;
+    }
+    if (!to || to.owner !== 'player') {
+        const err = new Error('Invalid territory')
+        err.status = 400;
+        throw err;
+    }
+    if (from.id === to.id) {
+        const err = new Error('Invalid, you cant move to same place')
+        err.status = 400;
+        throw err;
+    }
+    if (!from.neighbors.includes(to.id)) {
+        const err = new Error('Territories need be neighbors')
+        err.status = 400;
+        throw err;
+    }
+    if (!Number.isInteger(soldiers) || soldiers < 1) {
+        const err = new Error('Soldiers need be number, and you need send minimun one soldier')
+        err.status = 400;
+        throw err;
+    }
+    if (from.soldiers - soldiers < 1) {
+        const err = new Error('You need left minimum one soldier in your territory')
+        err.status = 400;
+        throw err;
+    }
+    from.soldiers -= soldiers
+    to.soldiers += soldiers
+    await updateGameById(gameId, result)
+    return result
+}

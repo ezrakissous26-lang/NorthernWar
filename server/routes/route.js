@@ -6,7 +6,7 @@ import {
   checkValidGameId,
 } from "../middleware/midlleware.js";
 import { createNewGame, getOneById } from "../repo/game-repo.js";
-import { attackPhase, initMapForCreateGame, reinforcePhase } from "../services/services.js";
+import { attackPhase, initMapForCreateGame, movePhase, reinforcePhase } from "../services/services.js";
 
 export const router = express.Router();
 
@@ -52,7 +52,7 @@ router.post("/games/:id/attack", checkValidGameId, checkIfAttackBodyExist , asyn
 
 router.post("/games/:id/move", checkValidGameId ,async (req, res) => {
     try {
-        const result = await //
+        const result = await movePhase(req.params.id, req.body)
         res.status(200).json(result)
     } catch (err) {
         res.status(err.status).json({error: err.message});

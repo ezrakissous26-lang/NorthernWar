@@ -54,9 +54,9 @@ export async function updateSoldierByTerritoryId(gameId, territoryId, soldier) {
 
 export async function updateGameById(id, gameData) {
   try {
-    const validData = { ...gameData };
-    delete validData._id;
-    const result = await collectionGame.replaceOne({ _id: new ObjectId(id) }, validData,);
+    const goodData = { ...gameData };
+    delete goodData._id;
+    const result = await collectionGame.replaceOne({ _id: new ObjectId(id) }, goodData,);
     return result;
   } catch (error) {
     console.error("Error :", error.message);
