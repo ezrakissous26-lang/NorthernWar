@@ -20,8 +20,8 @@ export async function checkValidGameId(req, res, next) {
 
 export function checkIfTerritoryBodyExist(req, res, next) {
     let body = req.body
-    if (!body || Object.keys(body).length === 0 || !body.territoryId) {
-        return res.status(400).json({error: 'Body required, invalid body'})
+    if (!body || Object.keys(body).length === 0 || !body.territoryId || body.territoryId === 'string') {
+        return res.status(400).json({error: 'Body required, invalid body, need be a number'})
     } else if (!(1 <= Number(body.territoryId) &&  Number(body.territoryId) <= 21)) {
         return res.status(400).json({error: 'Id out the range of territories'})
     } next()

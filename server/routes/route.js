@@ -6,7 +6,7 @@ import {
   checkValidGameId,
 } from "../middleware/midlleware.js";
 import { createNewGame, getOneById } from "../repo/game-repo.js";
-import { initMapForCreateGame, reinforcePhase } from "../services/services.js";
+import { attackPhase, initMapForCreateGame, reinforcePhase } from "../services/services.js";
 
 export const router = express.Router();
 
@@ -41,11 +41,12 @@ router.post("/games/:id/reinforce", checkValidGameId ,checkIfTerritoryBodyExist,
     }
 });
 
-router.post("/games/:id/attack", checkValidGameId, checkIfAttackBodyExist ,(req, res) => {
+router.post("/games/:id/attack", checkValidGameId, checkIfAttackBodyExist , async (req, res) => {
     try {
-        
-    } catch (error) {
-        
+        const result = await attackPhase(req.params.id, req.body)
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(err.status).json({error: err.message})
     }
     res.send("banana");
 });
